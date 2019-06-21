@@ -1,0 +1,83 @@
+﻿<core:FragmentDefinition
+   xmlns="sap.m"
+   xmlns:core="sap.ui.core" >
+  <Dialog
+     id="contractDetailsDialog"
+     title="Contract Details">
+    <content>
+      <Table
+         id="contractDetailsList"
+         growing="true"
+         growingThreshold="10"
+         items="{
+						path: '/LogEntries'}">
+
+        <columns>
+          <Column id="BuKrsD"
+                  width="10%">
+            <Text text="BuKrs"
+                        />
+
+          </Column>
+          <Column id="LegIdD"
+                  width="30%">
+            <Text text="LegId"/>
+          </Column>
+
+          <Column id="FilenameD">
+            <Text text="Filename" />
+          </Column>
+
+            <Column id="TextD"
+                  width="auto">
+            <Text text="Text"
+                        />
+          </Column>
+          <Column id="xmlD"
+                  visible="true"
+                  
+                       width="auto">
+            <Text text="XML"/>
+            
+          </Column>
+
+        </columns>
+        <items>
+          <ColumnListItem>
+            <cells>
+              <Input value="{BuKrs}"
+                           />
+
+            </cells>
+            <cells>
+              <Input value="{LegId}"/>
+            </cells>
+            <cells>
+              <Input value="{FileId}"/>
+            </cells>
+            <cells>
+              <Input value="{Text}"/>
+            </cells>
+          
+
+
+          </ColumnListItem>
+        </items>
+
+      </Table>
+    </content>
+    <buttons>
+
+
+    <Button
+      text="Show XML"
+      press=".onShowXML"/>
+
+  
+      <Button
+         text="Close"
+         press=".onCloseDialog"/>
+    </buttons>
+
+  </Dialog>
+</core:FragmentDefinition>

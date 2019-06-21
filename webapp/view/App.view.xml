@@ -1,0 +1,107 @@
+<mvc:View
+	controllerName="sap.ui.core.tutorial.odatav4.controller.App"
+	displayBlock="true"
+	xmlns="sap.m"
+	xmlns:mvc="sap.ui.core.mvc"
+  xmlns:core="sap.ui.core">
+  <Shell>
+    <App busy="{appView>/busy}" class="sapUiSizeCompact">
+      <pages>
+        <Page title="Contract Messages">
+          <content>
+            <Table
+							id="peopleList"
+							growing="true"
+							growingThreshold="10"
+							items="{
+								path: '/LogEntries'}">
+              <headerToolbar>
+                <Toolbar>
+                   <ToolbarSpacer/>
+                  
+                
+                  <SearchField
+                    id="searchLegId"
+                    placeholder="LegId"
+                    width="20%"
+                    search=".onSearchLegId"/>
+                  
+                  <ToolbarSpacer/>
+
+                  <Label text="LegIds"/>
+
+                  <RadioButton id="rbFail" groupName="grpLegId" text="Failed" selected="true" select=".onSelect" />
+                  <RadioButton groupName="grpLegId" text="All" />
+
+                  <ComboBox
+                          id="searchText"
+                      placeholder="LogText"
+                      change=".onCbTextChange"
+                    items="{
+                    path: '/LogDistinctText'}">
+                    <core:ListItem key="{Id}" text="{Text}" additionalText = "{Id}"/>
+                  </ComboBox>
+
+                </Toolbar>
+              </headerToolbar>
+              <columns>
+                <Column id="BuKrs"
+                        width="10%">
+                  <Text text="BuKrs"
+                        />
+
+                </Column>
+                <Column id="LegId"
+                        width="20%">
+                  <Text text="LegId"/>
+                </Column>
+                
+                  <Column id="Filename">
+                    <Text text="Filename"
+                        />
+                </Column>
+                <Column id="Text">
+                  <Text text="Text"
+                        />
+                </Column>
+                <Column id="Details">
+                  <Text text="Details"
+                        />
+                </Column>
+
+              </columns>
+              <items>
+                <ColumnListItem>
+                  <cells>
+                    <Input value="{BuKrs}"
+                           />
+
+                  </cells>
+                  <cells>
+                    <Input value="{LegId}"/>
+                  </cells>
+                  <cells>
+                    <Input value="{FileId}"/>
+                  </cells>
+                  <cells>
+                    <Input value="{Text}"/>
+                  </cells>
+
+                  <cells>
+                    <Button id="btnDetails" text="Details" press=".onPress"/>
+                  </cells>
+
+
+
+                </ColumnListItem>
+              </items>
+            </Table>
+          </content>
+        </Page>
+      </pages>
+    </App>
+  </Shell>
+
+</mvc:View>
+
+
