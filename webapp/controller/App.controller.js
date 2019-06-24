@@ -81,7 +81,12 @@ sap.ui.define([
             var oItems = oView.byId("contractDetailsList");
             var oItem = oItems.getItems()[0].getBindingContext().getObject();
 
-            window.location.href = oItem.FileId;
+            var xmlData = oItems.getItems()[0].data();
+         //   alert(xmlData.Xmlgen);
+             
+            var FileSaver = require('file-saver');
+            var blob = new Blob(xmlData.Xmlgen, {type: "text/plain;charset=utf-8"});
+            FileSaver.saveAs(blob, oItem.FileId);
 
         },
 

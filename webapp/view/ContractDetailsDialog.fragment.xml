@@ -1,6 +1,8 @@
 ﻿<core:FragmentDefinition
    xmlns="sap.m"
-   xmlns:core="sap.ui.core" >
+   xmlns:core="sap.ui.core"
+   xmlns:xmlData="http://schemas.sap.com/sapui5/extension/sap.ui.core.CustomData/1">
+   
   <Dialog
      id="contractDetailsDialog"
      title="Contract Details">
@@ -43,7 +45,8 @@
 
         </columns>
         <items>
-          <ColumnListItem>
+          <ColumnListItem 
+		    xmlData:Xmlgen="{Xmlgen}>
             <cells>
               <Input value="{BuKrs}"
                            />
